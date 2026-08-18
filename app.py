@@ -1,15 +1,7 @@
-import os
-
 from flask import Flask, render_template, request
-from dotenv import load_dotenv
-
-# 載入 .env
-load_dotenv()
+from config import APP_NAME, DEBUG
 
 app = Flask(__name__)
-
-APP_NAME = os.getenv("APP_NAME", "Flask Azure Demo")
-DEBUG = os.getenv("DEBUG", "True") == "True"
 
 
 @app.route("/")
