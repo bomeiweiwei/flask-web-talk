@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from config import APP_NAME, DEBUG
+from services.LMStudioService import LMStudioService
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def submit():
 
     user_input = request.form.get("message")
 
-    result = f"你輸入的是：{user_input}"
+    result = LMStudioService.Chat(user_input)
 
     return render_template(
         "index.html",
